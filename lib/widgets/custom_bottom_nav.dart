@@ -50,8 +50,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             text: 'Result',
           ),
           GButton(
-            icon: Icons.settings,
-            text: 'Settings',
+            icon: Icons.logout,
+            text: 'Sing out',
           ),
         ]);
   }
