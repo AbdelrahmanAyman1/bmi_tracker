@@ -1,4 +1,6 @@
+import 'package:bmi_tracker/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = 'home';
@@ -7,6 +9,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'BMI Tracker',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
+        ),
+        centerTitle: true,
+        backgroundColor: primaryColor,
+      ),
+    );
   }
 }
