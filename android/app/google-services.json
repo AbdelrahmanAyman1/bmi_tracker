@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "413440393912",
+    "project_id": "bim-tracker",
+    "storage_bucket": "bim-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413440393912:android:635c350a7e9d760d6aea4d",
+        "android_client_info": {
+          "package_name": "com.example.bmi_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPMqD9IczlXKMtoaz7E2SNul8p5Vr2NYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

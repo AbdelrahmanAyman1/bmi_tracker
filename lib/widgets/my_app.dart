@@ -1,4 +1,6 @@
+import 'package:bmi_tracker/screens/home_screen.dart';
 import 'package:bmi_tracker/screens/sing_in_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,9 +17,12 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: SingInScreen.routeName,
+          initialRoute: FirebaseAuth.instance.currentUser == null
+              ? SingInScreen.routeName
+              : HomeScreen.routeName,
           routes: {
             SingInScreen.routeName: (context) => const SingInScreen(),
+            HomeScreen.routeName: (context) => const HomeScreen()
           },
         );
       },
