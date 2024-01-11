@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingInScreen extends StatelessWidget {
   static String routeName = 'singIn';
@@ -7,6 +8,13 @@ class SingInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Image.asset('assets/images/login.gif',
+              width: double.infinity.w, height: 300.h)
+        ],
+      ),
+    );
   }
 }
