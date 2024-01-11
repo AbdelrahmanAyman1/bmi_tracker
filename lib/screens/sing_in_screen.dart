@@ -10,9 +10,12 @@ class SingInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.asset('assets/images/login.gif',
-              width: double.infinity.w, height: 300.h)
+              width: double.infinity.w, height: 300.h),
+          Text('Please Sing In',
+              style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold)),
         ],
       ),
     );
