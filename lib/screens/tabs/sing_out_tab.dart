@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ResultTab extends StatelessWidget {
-  const ResultTab({super.key});
+class SingOutTab extends StatelessWidget {
+  const SingOutTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: Colors.grey,
     );
   }
 }
