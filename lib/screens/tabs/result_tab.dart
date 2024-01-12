@@ -1,3 +1,4 @@
+
 import 'package:bmi_tracker/model/result_model.dart';
 import 'package:bmi_tracker/screens/update_result_screen.dart';
 import 'package:bmi_tracker/services/fire_store.dart';
@@ -36,6 +37,5 @@ class ResultTab extends StatelessWidget {
           );
         }
       },
-    );
   }
 }
