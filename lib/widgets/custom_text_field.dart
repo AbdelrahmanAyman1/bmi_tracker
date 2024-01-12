@@ -7,17 +7,20 @@ class CustomTextField extends StatelessWidget {
       {super.key,
       required this.hint,
       required this.controller,
-      required this.errorMessage});
+      required this.errorMessage,
+      this.onSaved});
 
   final String hint;
   final String? errorMessage;
   final TextEditingController? controller;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) => value?.trim().isEmpty == true ? errorMessage : null,
       controller: controller,
+      onSaved: onSaved,
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         contentPadding:

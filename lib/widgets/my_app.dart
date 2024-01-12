@@ -1,4 +1,5 @@
 import 'package:bmi_tracker/providers/bmi_calc_provider.dart';
+import 'package:bmi_tracker/providers/bmi_ubdate_provider.dart';
 import 'package:bmi_tracker/screens/home_screen.dart';
 import 'package:bmi_tracker/screens/sing_in_screen.dart';
 import 'package:bmi_tracker/screens/result_screen.dart';
@@ -19,8 +20,11 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
-        return ChangeNotifierProvider(
-          create: (context) => BmiCalcProvider(),
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => BmiCalcProvider()),
+            ChangeNotifierProvider(create: (context) => BmiUpdateProvider()),
+          ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             initialRoute: FirebaseAuth.instance.currentUser == null
