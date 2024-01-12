@@ -18,7 +18,7 @@ class CustomCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 5.h),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-        height: 170.h,
+        height: 200.h,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
