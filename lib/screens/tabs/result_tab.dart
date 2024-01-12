@@ -55,7 +55,7 @@ class _ResultTabState extends State<ResultTab> {
                         },
                         child: const Text('Load More'),
                       )
-                    : page < 10
+                    : page <= 10 && page > 0
                         ? ElevatedButton(
                             onPressed: () {
                               setState(() {
