@@ -1,4 +1,5 @@
 import 'package:bmi_tracker/model/result_model.dart';
+import 'package:bmi_tracker/screens/update_result_screen.dart';
 import 'package:bmi_tracker/services/fire_store.dart';
 import 'package:bmi_tracker/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,10 @@ class ResultTab extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
             itemBuilder: (context, index) {
               return InkWell(
-                  onTap: () {}, child: CustomCard(result: result[index]));
+                  onTap: () {
+                    Navigator.pushNamed(context, UpdateResult.routeName);
+                  },
+                  child: CustomCard(result: result[index]));
             },
           );
         }
