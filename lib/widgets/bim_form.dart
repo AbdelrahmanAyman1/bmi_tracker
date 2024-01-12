@@ -1,29 +1,21 @@
+import 'package:bmi_tracker/model/result_model.dart';
+import 'package:bmi_tracker/providers/bmi_calc_provider.dart';
+import 'package:bmi_tracker/screens/result_screen.dart';
 import 'package:bmi_tracker/widgets/custom_button.dart';
 import 'package:bmi_tracker/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
-class BIMForm extends StatefulWidget {
+class BIMForm extends StatelessWidget {
   const BIMForm({super.key});
 
   @override
-  State<BIMForm> createState() => _BIMFormState();
-}
-
-class _BIMFormState extends State<BIMForm> {
-  TextEditingController weightController = TextEditingController();
-
-  TextEditingController heightController = TextEditingController();
-
-  TextEditingController ageController = TextEditingController();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  GlobalKey<FormState> formKey = GlobalKey();
-
-  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<BmiCalcProvider>(context);
     return Form(
-      key: formKey,
-      autovalidateMode: autovalidateMode,
+      key: provider.formKey,
+      autovalidateMode: provider.autovalidateMode,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +25,7 @@ class _BIMFormState extends State<BIMForm> {
               Expanded(
                   child: CustomTextField(
                 hint: 'Weight',
-                controller: weightController,
+                controller: provider.weightController,
                 errorMessage: 'enter your weight',
               )),
               SizedBox(
@@ -41,8 +33,8 @@ class _BIMFormState extends State<BIMForm> {
               ),
               Expanded(
                   child: CustomTextField(
-                hint: 'Height',
-                controller: heightController,
+                    hint: 'Height',
+                controller: provider.heightController,
                 errorMessage: 'enter your height',
               )),
             ],
@@ -52,7 +44,7 @@ class _BIMFormState extends State<BIMForm> {
           ),
           CustomTextField(
             hint: 'Age',
-            controller: ageController,
+            controller: provider.ageController,
             errorMessage: 'enter your age',
           ),
           SizedBox(
@@ -62,12 +54,13 @@ class _BIMFormState extends State<BIMForm> {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: CustomButton(
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
+                  provider.addBMIToFireStore();
+                  Navigator.pushNamed(context, ResultScreen.routeName,
+                      arguments: provider.resultModel);
+                  provider.ageController.text = '';
+                  provider.heightController.text = '';
+                  provider.weightController.text = '';
+                  provider.resultModel = null;
                 },
                 text: 'Calculate'),
           )

@@ -1,10 +1,12 @@
 import 'package:bmi_tracker/constant/color.dart';
+import 'package:bmi_tracker/providers/bmi_calc_provider.dart';
 import 'package:bmi_tracker/screens/tabs/home_tab.dart';
 import 'package:bmi_tracker/screens/tabs/result_tab.dart';
 import 'package:bmi_tracker/screens/tabs/sing_out_tab.dart';
 import 'package:bmi_tracker/widgets/custom_bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = 'home';
