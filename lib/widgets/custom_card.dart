@@ -28,7 +28,7 @@ class CustomCard extends StatelessWidget {
               children: [
                 Text(
                   textAlign: TextAlign.center,
-                  'result= ${result.result}'.substring(0, 12),
+                  'BMI= ${result.result}'.substring(0, 9),
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -59,7 +59,7 @@ class CustomCard extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             Text(
-              'height= ${result.weight} CM',
+              'height= ${result.height} CM',
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
