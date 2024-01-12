@@ -2,6 +2,7 @@ import 'package:bmi_tracker/providers/bmi_calc_provider.dart';
 import 'package:bmi_tracker/screens/home_screen.dart';
 import 'package:bmi_tracker/screens/sing_in_screen.dart';
 import 'package:bmi_tracker/screens/result_screen.dart';
+import 'package:bmi_tracker/screens/update_result_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
               SingInScreen.routeName: (context) => const SingInScreen(),
               HomeScreen.routeName: (context) => const HomeScreen(),
               ResultScreen.routeName: (context) => const ResultScreen(),
+              UpdateResult.routeName: (context) => const UpdateResult()
             },
           ),
         );
