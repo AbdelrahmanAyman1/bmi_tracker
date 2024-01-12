@@ -9,7 +9,6 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<BmiCalcProvider>(context);
     return Padding(
       padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
       child: const BIMForm(),

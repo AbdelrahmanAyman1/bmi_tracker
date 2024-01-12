@@ -28,6 +28,13 @@ class FireStoreFunctions {
         .snapshots();
   }
 
+  static Future<void> updateTask(ResultModel resultModel) {
+    var collection = getResultCollection();
+    var docRef = collection.doc();
+    resultModel.id = docRef.id;
+    return docRef.update(resultModel.toJson());
+  }
+
   static void deleteTask(String id) {
     getResultCollection().doc(id).delete();
   }
