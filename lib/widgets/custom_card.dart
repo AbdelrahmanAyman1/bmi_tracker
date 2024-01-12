@@ -1,5 +1,7 @@
 import 'package:bmi_tracker/constant/color.dart';
 import 'package:bmi_tracker/model/result_model.dart';
+import 'package:bmi_tracker/services/fire_store.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +35,9 @@ class CustomCard extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      FireStoreFunctions.deleteTask(result.id);
+                    },
                     icon: const Icon(
                       Icons.delete,
                       color: Colors.white,

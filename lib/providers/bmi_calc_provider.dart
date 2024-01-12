@@ -26,7 +26,7 @@ class BmiCalcProvider extends ChangeNotifier {
       calcBMI();
       resultModel = ResultModel(
           result: result!,
-          id: FirebaseAuth.instance.currentUser?.uid,
+          emailId: FirebaseAuth.instance.currentUser!.uid,
           weight: double.parse(weightController.text),
           height: double.parse(heightController.text),
           date: DateTime.now(),

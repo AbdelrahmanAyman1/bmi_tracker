@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 
 class FireStoreFunctions {
   static Future<void> addResult(ResultModel resultModel) async {
-    await FirebaseFirestore.instance
-        .collection('Result')
-        .add(resultModel.toJson());
+    var collection = getResultCollection();
+    var docRef = collection.doc();
+    resultModel.id = docRef.id;
+    return docRef.set(resultModel);
   }
 
   static CollectionReference<ResultModel> getResultCollection() {
@@ -23,7 +24,7 @@ class FireStoreFunctions {
   static Stream<QuerySnapshot<ResultModel>> getResult() {
     return getResultCollection()
         .orderBy('date', descending: true)
-        .where('id', isEqualTo: FirebaseAuth.instance.currentUser?.uid)
+        .where('emailId', isEqualTo: FirebaseAuth.instance.currentUser?.uid)
         .snapshots();
   }
 

@@ -20,13 +20,14 @@ class ResultTab extends StatelessWidget {
               child: Text('Something went wrong please try again later'));
         } else {
           List<ResultModel> result =
-              snapshot.data!.docs.map((e) => e.data()).toList() ?? [];
+              snapshot.data!.docs.map((e) => e.data()).toList();
           return ListView.builder(
             itemCount: result.length,
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
             itemBuilder: (context, index) {
-              return CustomCard(result: result[index]);
+              return InkWell(
+                  onTap: () {}, child: CustomCard(result: result[index]));
             },
           );
         }
